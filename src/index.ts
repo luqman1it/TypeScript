@@ -56,3 +56,25 @@ class AddressBook {
         }
     }
 }
+const addressBook = new AddressBook();
+
+const contact1 = new Contact("John Doe", "johndoe@example.com", "123-456-7890", "group1 group2");
+const contact2 = new Contact("Alice Smith", "alice.smith@invalid", "456-789-0123"); // Invalid email
+const contact3 = new Contact("", "valid@email.com", "789-012-3456"); // Empty name
+
+addressBook.addContact(contact1);
+
+try {
+    addressBook.addContact(contact2); // This will throw an error (invalid email)
+    addressBook.addContact(contact3); // This will throw an error (empty name)
+} catch (error) {
+    console.error("Error adding contact:", (error as Error).message);
+}
+
+console.log("Contacts:");
+addressBook.printContacts();
+
+// Example usage of new search functionality
+const searchResults = addressBook.searchContacts("john");
+console.log("Search results (name containing 'john'):");
+searchResults.forEach((contact) => console.log(`  - ${contact.name}`));
