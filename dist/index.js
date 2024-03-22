@@ -70,8 +70,9 @@ catch (error) {
 console.log("Contacts:");
 addressBook.printContacts();
 // Example usage of new search functionality
-const searchResults = addressBook.searchContacts("john");
-console.log("Search results (name containing 'john'):");
+let theName = 'luqman';
+const searchResults = addressBook.searchContacts(theName);
+console.log(`Search results (name containing '${theName}'):`);
 searchResults.forEach((contact) => console.log(`  - ${contact.name}`));
 // implement method filterByGroup
 console.log('Filter By Group1');
