@@ -1,6 +1,6 @@
 "use strict";
 class Contact {
-    constructor(name, email, phone, group = "no group") {
+    constructor(name, email, phone, group = 'no group') {
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -45,14 +45,21 @@ class AddressBook {
             console.log(`Email: ${contact.email}`);
             console.log(`Phone: ${contact.phone}`);
             console.log(`Group: ${contact.group}`);
+            console.log(`****************`);
         }
     }
 }
 const addressBook = new AddressBook();
-const contact1 = new Contact("John Doe", "johndoe@example.com", "123-456-7890", "group1 group2");
+const contact1 = new Contact("John Doe", "johndoe@example.com", "123-456-7890", 'group1');
 const contact2 = new Contact("Alice Smith", "alice.smith@invalid", "456-789-0123"); // Invalid email
 const contact3 = new Contact("", "valid@email.com", "789-012-3456"); // Empty name
+const contact4 = new Contact("luqman Ali", "Luqman@example.com", "111-222-3333", 'group1');
+const contact5 = new Contact("Ahmad ahmad", "Ali@example.com", "444-555-6666", 'group2');
+const contact6 = new Contact("Zain Zain", "Zain@example.com", "777-888-9999", 'group2');
 addressBook.addContact(contact1);
+addressBook.addContact(contact4);
+addressBook.addContact(contact5);
+addressBook.addContact(contact6);
 try {
     addressBook.addContact(contact2); // This will throw an error (invalid email)
     addressBook.addContact(contact3); // This will throw an error (empty name)
@@ -66,3 +73,10 @@ addressBook.printContacts();
 const searchResults = addressBook.searchContacts("john");
 console.log("Search results (name containing 'john'):");
 searchResults.forEach((contact) => console.log(`  - ${contact.name}`));
+// implement method filterByGroup
+console.log('Filter By Group1');
+console.log(addressBook.filterByGroup('group1'));
+// implement method sortByName
+addressBook.sortByName();
+console.log('Sort By Name :');
+addressBook.printContacts();
